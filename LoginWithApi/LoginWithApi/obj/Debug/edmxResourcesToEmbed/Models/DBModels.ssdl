@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Teste_ElleveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DAT_USUARIO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Senha" Type="varchar" MaxLength="16" />
+    <Property Name="CadastroData" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_DAT_USUARIO_DAT_USUARIO">
+    <End Role="DAT_USUARIO" Type="Self.DAT_USUARIO" Multiplicity="1" />
+    <End Role="DAT_USUARIO1" Type="Self.DAT_USUARIO" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DAT_USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DAT_USUARIO1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Teste_ElleveModelStoreContainer">
+    <EntitySet Name="DAT_USUARIO" EntityType="Self.DAT_USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DAT_USUARIO_DAT_USUARIO" Association="Self.FK_DAT_USUARIO_DAT_USUARIO">
+      <End Role="DAT_USUARIO" EntitySet="DAT_USUARIO" />
+      <End Role="DAT_USUARIO1" EntitySet="DAT_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

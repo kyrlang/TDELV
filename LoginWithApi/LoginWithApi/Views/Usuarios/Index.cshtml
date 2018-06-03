@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LoginWithApi.Models.MVC.mvcUsuario>
+
+@{
+    ViewBag.Title = "Usuários Cadastrados";
+}
+
+<h2>Usuários Cadastrados</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Novo Usuario", "FormUsuario")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th>
+            @Html.Label("Data de Cadastro")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CadastroData)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Selecionar", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

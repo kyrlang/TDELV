@@ -1,0 +1,17 @@
+﻿@model LoginWithApi.Models.MVC.mvcUsuario
+<div class="form-control-static">
+    <div class="form-group">
+        <p class="form-inline text-info lead">
+            Bem vindo(a)
+            @Html.DisplayFor(m => m.Nome, new { @class = "label-info" })
+        </p>
+        <p>Seja bem vindo a nossa aplicação.</p>
+        <p>Caso seja do seu interesse realizar o cadastro de um novo usuário clique em inserir, e em listar, se desejar visualizar a listagem dos usuários cadastrados.</p>
+    </div>
+
+    <div class="form-group">
+        @Html.ActionLink("Inserir", "FormUsuario", "Usuarios", null, new { @class = "btn btn-primary btn-group" })
+        @Html.ActionLink("Listar", "Index", "Usuarios", null, new { @class = "btn btn-primary btn-group" })
+    </div>
+</div>
+

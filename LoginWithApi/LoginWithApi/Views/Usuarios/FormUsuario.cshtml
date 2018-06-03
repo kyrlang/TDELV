@@ -1,0 +1,29 @@
+﻿@model LoginWithApi.Models.MVC.mvcUsuario
+
+@using (Html.BeginForm("AddOrUpdate", "Usuarios", FormMethod.Post, new { @class = "form-control-static" }))
+{
+    @Html.HiddenFor(u => u.Id, Model.Id)
+    @Html.HiddenFor(u => u.CadastroData, Model.CadastroData)
+
+    <div class="form-group">
+        @Html.LabelFor(u => u.Nome, "Nome:")
+        @Html.TextBoxFor(u => u.Nome, Model.Nome, new { @class = "form-control", @maxlength = "100", @required = "required" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.Email, "Email:")
+        @Html.TextBoxFor(u => u.Email, Model.Email, new { @class = "form-control", @maxlength = "100", @required = "required" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.Senha, "Senha:")
+        @Html.PasswordFor(u => u.Senha, new { @class = "form-control", @maxlength = "16", @required = "required" })
+    </div>
+
+    <input type="submit" value="Salvar" class="btn btn-large btn-primary" />
+
+}
+
+    <div class="form-group">
+        <p class="form-control-static text-danger ">@ViewBag.Mensagem</p>
+    </div>
+
+
