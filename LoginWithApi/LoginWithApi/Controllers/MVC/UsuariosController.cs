@@ -49,7 +49,7 @@ namespace LoginWithApi.Controllers.MVC
 
             HttpResponseMessage response;
 
-            if (Session["email"] != null && Session["email"].ToString() != usuario.Email )
+            if ((Session["email"] != null && Session["email"].ToString() != usuario.Email) || (Session["email"] == null))
             {
                 response = GlobalVariables.WebApiClient.PostAsJsonAsync("usuarios/email", usuario).Result;
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
