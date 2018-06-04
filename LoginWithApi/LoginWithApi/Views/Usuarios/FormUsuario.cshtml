@@ -8,14 +8,17 @@
     <div class="form-group">
         @Html.LabelFor(u => u.Nome, "Nome:")
         @Html.TextBoxFor(u => u.Nome, Model.Nome, new { @class = "form-control", @maxlength = "100", @required = "required" })
+        @Html.ValidationMessageFor(u => u.Nome)
     </div>
     <div class="form-group">
         @Html.LabelFor(u => u.Email, "Email:")
         @Html.TextBoxFor(u => u.Email, Model.Email, new { @class = "form-control", @maxlength = "100", @required = "required" })
+        @Html.ValidationMessageFor(u => u.Email, null, new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.LabelFor(u => u.Senha, "Senha:")
         @Html.PasswordFor(u => u.Senha, new { @class = "form-control", @maxlength = "16", @required = "required" })
+        @Html.ValidationMessageFor(u => u.Senha)
     </div>
 
     <input type="submit" value="Salvar" class="btn btn-large btn-primary" />

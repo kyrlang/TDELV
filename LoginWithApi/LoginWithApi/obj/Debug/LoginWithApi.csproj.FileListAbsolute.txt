@@ -43,3 +43,7 @@ F:\Projetos\TDELV\LoginWithApi\LoginWithApi\bin\System.Web.Http.WebHost.xml
 F:\Projetos\TDELV\LoginWithApi\LoginWithApi\obj\Debug\LoginWithApi.csprojResolveAssemblyReference.cache
 F:\Projetos\TDELV\LoginWithApi\LoginWithApi\obj\Debug\LoginWithApi.dll
 F:\Projetos\TDELV\LoginWithApi\LoginWithApi\obj\Debug\LoginWithApi.pdb
+F:\Projetos\TDELV\LoginWithApi\LoginWithApi\bin\PagedList.dll
+F:\Projetos\TDELV\LoginWithApi\LoginWithApi\bin\PagedList.Mvc.dll
+F:\Projetos\TDELV\LoginWithApi\LoginWithApi\bin\PagedList.xml
+F:\Projetos\TDELV\LoginWithApi\LoginWithApi\bin\PagedList.Mvc.xml

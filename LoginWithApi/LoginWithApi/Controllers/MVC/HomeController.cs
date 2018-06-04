@@ -19,7 +19,6 @@ namespace LoginWithApi.Controllers.MVC
             mvcUsuario usuario = new mvcUsuario();
             return View(usuario);
         }
-
         
         [ActionName("Login")]
         public ActionResult Login(mvcUsuario usuario)

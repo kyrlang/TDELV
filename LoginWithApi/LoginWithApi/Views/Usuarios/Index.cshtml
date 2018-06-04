@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LoginWithApi.Models.MVC.mvcUsuario>
+﻿@model PagedList.IPagedList<LoginWithApi.Models.MVC.mvcUsuario>
 
 @{
     ViewBag.Title = "Usuários Cadastrados";
@@ -12,13 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            @*@Html.DisplayNameFor("Nome")*@
+            @Html.Label("Nome")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @*@Html.DisplayNameFor(model => model.Email)*@
+            @Html.Label("Email")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Senha)
+            @*@Html.DisplayNameFor(model => model.Senha)*@
+            @Html.Label("Senha")
         </th>
         <th>
             @Html.Label("Data de Cadastro")
@@ -42,9 +45,45 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Selecionar", new { id=item.Id }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id }, new { id = "Excluir"})
         </td>
     </tr>
 }
 
 </table>
+
+
+<div>
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { pagina = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Anterior", "Index", new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Anterior
+    }
+
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Próxima >", "Index", new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { pagina = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @:Próxima >
+        @Html.Raw(" ")
+        @:>>
+    }
+</div>
+
+
+
+@Html.Raw(TempData["msg"]);
+

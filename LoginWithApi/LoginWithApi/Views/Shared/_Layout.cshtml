@@ -6,7 +6,14 @@
     <title>Application User</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,7 +32,6 @@
             </div>
         </div>
     </div>
-
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -33,11 +39,5 @@
             <p>&copy; @DateTime.Now.Year - Application User</p>
         </footer>
     </div>
-
-    <script src="~/Scripts/jquery-1.7.1.js"></script>
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-
 </body>
 </html>

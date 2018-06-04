@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using LoginWithApi.Classes;
 using LoginWithApi.Models.MVC;
 using Newtonsoft.Json;
+using PagedList;
 
 namespace LoginWithApi.Controllers.MVC
 {
@@ -22,9 +23,12 @@ namespace LoginWithApi.Controllers.MVC
         }
 
         // GET: Usuarios
-        public ActionResult Index()
+        public ActionResult Index(int? pagina)
         {
-            return View(ListarUsuarios());
+            ViewBag.IsDelete = false;
+            int numTamanhoPagina = 5;
+            int numPagina = (pagina ?? 1);
+            return View(ListarUsuarios().ToPagedList(numPagina, numTamanhoPagina));
         }
 
         public ActionResult BoasVindas(mvcUsuario usuario)
@@ -84,7 +88,10 @@ namespace LoginWithApi.Controllers.MVC
         {
             HttpResponseMessage response = GlobalVariables.WebApiClient.DeleteAsync("Usuarios/" + id).Result;
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                TempData["msg"] = @"<script>alert('O usuário selecionado foi excluído.');</script>";
                 return RedirectToAction("Index");
+            }
             else
                 return View("Error");
         }
